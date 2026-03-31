@@ -12,14 +12,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Özkan Bozkurt — Software Engineer",
-    template: "%s | Özkan Bozkurt",
+    default: "M. Özkan Bozkurt — Portfolio",
+    template: "%s | M. Özkan Bozkurt",
   },
   description:
-    "Software Engineer / Industrial Engineering — portföy ve iletişim sayfası.",
+    "Software Engineer | Network & IT | Production Systems — portfolio and contact page.",
   openGraph: {
-    title: "Özkan Bozkurt",
-    description: "Software Engineer / Industrial Engineering",
+    title: "M. Özkan Bozkurt",
+    description: "Software Engineer | Network & IT | Production Systems",
     type: "website",
   },
 };

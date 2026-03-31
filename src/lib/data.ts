@@ -1,41 +1,73 @@
 /**
- * Portföy içeriği — tek yerden düzenlenebilir yapı (production-ready dummy data).
+ * Portföy içeriği — tek yerden düzenlenebilir yapı (dummy data ama production-ready).
  */
 
 export const siteConfig = {
-  name: "Özkan Bozkurt",
-  title: "Software Engineer / Industrial Engineering",
-  /** İstersen buradan başlığı değiştir */
-  titleAlt: "Yazılım Mühendisi / Endüstri Mühendisliği",
-  email: "hello@example.com",
-  location: "İstanbul, Türkiye",
+  name: "M. Özkan Bozkurt",
+  title: "Software Engineer | Network & IT | Production Systems",
+  email: "mmozkan10@hotmail.com",
+  location: "Kocaeli-Darıca • Türkiye",
+  cv: {
+    url: "/cv.pdf",
+    label: "CV",
+  },
   intro:
-    "Üretim sistemleri, veri ve ağ katmanları üzerinde çalışan; ölçeklenebilir, okunabilir yazılım üretmeyi seven bir mühendisim. Basit arayüzler, sağlam mimari.",
-  bio: "Endüstri mühendisliği arka planıyla operasyonel verimliliği yazılımla birleştiriyorum. Dağıtık sistemler, gözlemlenebilirlik ve sürekli iyileştirme odaklıyım.",
+    "Teknolojiyi herkes için erişilebilir, anlaşılabilir ve uygulanabilir hale getirmeyi hedefliyorum.\nYazılım, ağ sistemleri ve üretim süreçlerini birleştirerek gerçek dünyaya dokunan çözümler geliştiriyorum.",
+  aboutSummary:
+    "Karmaşık sistemleri sadeleştirerek teknolojiyi herkes için erişilebilir ve anlaşılabilir hale getirmek.",
+  aboutParagraphs: [
+    "1999 yılında Konya Akşehir’de doğdum. Eğitim hayatıma İstanbul’da başlayıp Kocaeli’de devam ettim. Küçük yaşlardan itibaren teknolojiye olan ilgim, zamanla sadece bir merak olmaktan çıkıp çözüm üretme isteğine dönüştü.",
+    "2017 yılında Fırat Üniversitesi Yazılım Mühendisliği bölümünü kazandım. Üniversite sürecimde yazılımın yalnızca akademik bir disiplin olmadığını, aynı zamanda kendi kendine öğrenilebilen ve sürekli geliştirilebilen bir alan olduğunu fark ettim. Bu farkındalık, beni klasik eğitim sınırlarının dışına çıkararak gerçek projeler üretmeye ve farklı alanlarda deneyim kazanmaya yönlendirdi.",
+    "Eğitim sürecime bir dönem ara vermek zorunda kalsam da bu süreyi kayıp olarak değil, kendimi farklı alanlarda geliştirdiğim bir dönem olarak değerlendirdim. Pandemi sonrasında eğitimime geri dönerek 2026 yılı itibarıyla mezun oldum.",
+    "Bu süreçte yazılımın yanı sıra özellikle network sistemleri, IT altyapıları ve üretim süreçleri üzerine yoğunlaştım. Farklı sektörlerde edindiğim deneyimler sayesinde, teknolojinin yalnızca geliştirilmesi değil, aynı zamanda doğru şekilde uygulanması gerektiğini gördüm.",
+    "Bugün en büyük motivasyonum:\nKarmaşık sistemleri sadeleştirerek teknolojiyi herkes için erişilebilir ve anlaşılabilir hale getirmek.",
+  ],
   social: {
-    github: "https://github.com/ozkanbozkurt",
-    linkedin: "https://www.linkedin.com/in/ozkanbozkurt",
+    github: "https://github.com/w-0zkan",
+    linkedin: "https://www.linkedin.com/in/%C3%B6zkan-bozkurt-0a0509329/",
   },
 } as const;
 
-export const skills = [
+export type SkillCategoryIcon = "ai" | "network" | "systems";
+
+export type SkillCategory = {
+  category: string;
+  icon: SkillCategoryIcon;
+  items: string[];
+};
+
+export const skills: SkillCategory[] = [
   {
-    category: "Software",
-    items: ["TypeScript", "React / Next.js", "Node.js", "API tasarımı"],
+    category: "AI & Software",
+    icon: "ai",
+    items: [
+      "LLM tabanlı chatbot sistemleri geliştirme",
+      "API entegrasyonu",
+      "Prompt engineering ve model optimizasyonu",
+      "Yapay zeka çıktısı analiz etme",
+    ],
   },
   {
-    category: "Networking",
-    items: ["TCP/IP", "DNS", "Yük dengeleme", "Güvenli erişim"],
+    category: "Network & IT",
+    icon: "network",
+    items: [
+      "LAN/WAN/Wi-Fi kurulum ve yönetim",
+      "IP yapılandırma ve sorun giderme",
+      "Firewall, VPN, temel güvenlik",
+      "Ağ izleme sistemleri",
+    ],
   },
   {
-    category: "Production Systems",
-    items: ["CI/CD", "Konteynerler", "İzleme", "Otomasyon"],
+    category: "Systems & Hardware",
+    icon: "systems",
+    items: [
+      "Donanım montajı ve arıza tespiti",
+      "Performans optimizasyonu",
+      "Sistem kurulumu ve teknik destek",
+      "Bakım ve operasyon süreçleri",
+    ],
   },
-  {
-    category: "Data Analytics",
-    items: ["SQL", "Metrikler", "Dashboard", "A/B düşüncesi"],
-  },
-] as const;
+];
 
 export type Project = {
   title: string;
@@ -46,64 +78,113 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Observability Hub",
-    description:
-      "Servis metriklerini tek panelde toplayan, düşük gecikmeli bir kontrol yüzeyi. Uyarı kuralları ve runbook bağlantıları.",
-    tech: ["Next.js", "Prometheus", "Grafana API"],
-    githubUrl: "https://github.com/example/observability-hub",
+    title: "MutluGünüm",
+    description: "Event reservation platform",
+    tech: ["Flutter", ".NET", "MongoDB"],
+    githubUrl: "https://github.com/w-0zkan",
   },
   {
-    title: "Line Balance Optimizer",
-    description:
-      "Montaj hattı dengeleme için kısıt tabanlı optimizasyon prototipi. Senaryoları CSV ile içe aktarır.",
-    tech: ["Python", "OR-Tools", "Streamlit"],
-    githubUrl: "https://github.com/example/line-balance",
+    title: "Rent A Car",
+    description: "Car rental web app",
+    tech: ["Flutter Web", ".NET"],
+    githubUrl: "https://github.com/w-0zkan",
   },
   {
-    title: "Edge Config Sync",
-    description:
-      "Çok bölgeli dağıtımlarda yapılandırma tutarlılığı; imzalı snapshot ve geri alma.",
-    tech: ["Go", "Redis", "Terraform"],
-    githubUrl: "https://github.com/example/edge-config",
+    title: "Yemek Sipariş Sistemi",
+    description: "Online food ordering",
+    tech: ["HTML", "CSS", "JS"],
+    githubUrl: "https://github.com/w-0zkan",
   },
   {
-    title: "Analytics Pipeline",
-    description:
-      "Ham olayları dönüştürüp günlük rapor üreten batch boru hattı; idempotent görevler.",
-    tech: ["DuckDB", "Airflow", "S3-kompatıbel depolama"],
-    githubUrl: "https://github.com/example/analytics-pipeline",
+    title: "RFID Door System",
+    description: "Arduino RFID access system",
+    tech: ["Arduino", "RFID"],
+    githubUrl: "https://github.com/w-0zkan",
+  },
+  {
+    title: "LLM + OCR System",
+    description: "Receipt analysis with AI",
+    tech: ["Python"],
+    githubUrl: "https://github.com/w-0zkan",
+  },
+  {
+    title: "LAN Monitoring Tool",
+    description: "IP tracking and network monitoring",
+    tech: ["Networking", "Monitoring"],
+    githubUrl: "https://github.com/w-0zkan",
+  },
+  {
+    title: "Database Designer",
+    description: "Database visualization tool",
+    tech: ["Database", "Visualization"],
+    githubUrl: "https://github.com/w-0zkan",
   },
 ];
 
 export type TimelineItem = {
   role: string;
   org: string;
-  period: string;
-  detail: string;
+  period?: string;
+  detail?: string | string[];
 };
 
 export const experience: TimelineItem[] = [
   {
-    role: "Software Engineer",
-    org: "Örnek Teknoloji A.Ş.",
-    period: "2023 — Günümüz",
-    detail:
-      "Ürün ekiplerinde tam yığın geliştirme; performans, güvenlik incelemeleri ve yayın süreçleri.",
+    role: "University",
+    org: "Server & Network Planning",
+    detail: "Sunucu ve ağ planlama çalışmaları",
   },
   {
-    role: "Endüstri Mühendisi (Stajyer → Junior)",
-    org: "Örnek Üretim A.Ş.",
-    period: "2020 — 2023",
-    detail:
-      "Kapasite planlama, süreç iyileştirme ve veri toplama; sonrasında iç araçların yazılım tarafına geçiş.",
+    role: "Ebebek",
+    org: "SAP Technical",
+    detail: "Stok ve ürün kontrol süreçleri",
+  },
+  {
+    role: "Vadi Bilişim",
+    org: "AI Document Digitization",
+    detail: "AI ile evrak dijitalleştirme ve sınıflandırma",
+  },
+  {
+    role: "Intellium",
+    org: "AI Products",
+    detail: [
+      "Lokal çalışan AI chatbot",
+      "Doğal dil ile uygulama oluşturma sistemi",
+    ],
   },
 ];
 
 export const education: TimelineItem[] = [
   {
-    role: "Endüstri Mühendisliği — Lisans",
-    org: "Örnek Üniversitesi",
-    period: "2016 — 2020",
-    detail: "Operasyon araştırması, istatistik ve üretim sistemleri.",
+    role: "İlkokul",
+    org: "Sabri Taşkın İlkokulu",
+  },
+  {
+    role: "Ortaokul",
+    org: "Deni Yıldızları Ortaokulu",
+  },
+  {
+    role: "Lise",
+    org: "Fatih Sultan Mehmet Anadolu Lisesi",
+  },
+  {
+    role: "Üniversite",
+    org: "Fırat Üniversitesi",
+    detail: "Yazılım Mühendisliği",
   },
 ];
+
+export type Certification = {
+  name: string;
+  status: string;
+};
+
+export const certifications: Certification[] = [
+  { name: "CCNA", status: "in progress" },
+  { name: "Security+", status: "in progress" },
+];
+
+export const careerGoal = {
+  label: "Hedef",
+  text: "Karmaşık sistemleri sadeleştirerek teknolojiyi herkes için erişilebilir ve anlaşılabilir hale getirmek.",
+} as const;

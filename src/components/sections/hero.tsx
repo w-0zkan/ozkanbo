@@ -17,6 +17,9 @@ const fade = {
 };
 
 export function HeroSection() {
+  const location = siteConfig.location?.trim();
+  const introLines = siteConfig.intro.split("\n");
+
   return (
     <section
       id="hero"
@@ -31,12 +34,14 @@ export function HeroSection() {
           animate="animate"
           className="max-w-2xl"
         >
-          <motion.p
-            variants={fade}
-            className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400"
-          >
-            {siteConfig.location}
-          </motion.p>
+          {location ? (
+            <motion.p
+              variants={fade}
+              className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400"
+            >
+              {location}
+            </motion.p>
+          ) : null}
           <motion.h1
             variants={fade}
             className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-zinc-50"
@@ -53,7 +58,12 @@ export function HeroSection() {
             variants={fade}
             className="mt-6 max-w-xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400"
           >
-            {siteConfig.intro}
+            {introLines.map((line, idx) => (
+              <span key={idx}>
+                {line}
+                {idx < introLines.length - 1 ? <br /> : null}
+              </span>
+            ))}
           </motion.p>
           <motion.div
             variants={fade}
@@ -71,6 +81,13 @@ export function HeroSection() {
             >
               Contact
             </Link>
+            <a
+              href={siteConfig.cv.url}
+              download
+              className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-300 bg-transparent px-6 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-900"
+            >
+              {siteConfig.cv.label}
+            </a>
           </motion.div>
         </motion.div>
       </div>

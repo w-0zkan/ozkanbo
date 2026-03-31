@@ -25,7 +25,7 @@ export function Navbar() {
           className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name.split(" ")[0]}
+          {siteConfig.name.replace(/^M\.\s*/u, "")}
           <span className="text-zinc-400 dark:text-zinc-500">.</span>
         </Link>
 

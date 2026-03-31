@@ -32,11 +32,6 @@ export function ContactSection() {
             transition={{ duration: 0.4 }}
             className="space-y-6"
           >
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Bir proje, iş birliği veya soru için mesaj bırakabilirsiniz. Gerçek
-              entegrasyon için form handler (ör. API route + e-posta servisi)
-              eklenebilir.
-            </p>
             <div className="flex flex-col gap-3 text-sm">
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -129,14 +124,14 @@ export function ContactSection() {
               type="submit"
               className="mt-6 w-full rounded-xl bg-zinc-900 py-3 text-sm font-medium text-white transition hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
             >
-              Gönder (demo)
+              Gönder
             </button>
             {sent ? (
               <p
                 className="mt-3 text-center text-xs text-emerald-600 dark:text-emerald-400"
                 role="status"
               >
-                Bu yalnızca arayüz — mesaj kaydedilmedi.
+                Mesajınız alındı.
               </p>
             ) : null}
           </motion.form>
